@@ -14,8 +14,8 @@ cloudinary.config({
 //Database connection
 connectDatabase();
 
-// const PORT = process.env.PORT || 3000;
-const PORT = 3001;
+const PORT = process.env.PORT || 3000;
+// const PORT = 3001;
 
 app.listen(PORT, () => {
     console.log(`Server is runnig on port number http://localhost:${PORT}`);
