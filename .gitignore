@@ -1,0 +1,8 @@
+/node_modules
+/README.md
+.DS_Store
+.vercel
+/backend/config/config.env
+/frontend/build
+/backend/DS_Store
+/frontend/node_modules
