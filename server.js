@@ -1,4 +1,4 @@
-const app = require("./api/app");
+const app = require("./app");
 const cloudinary = require("cloudinary");
 const connectDatabase = require("./config/database");
 
@@ -14,9 +14,13 @@ cloudinary.config({
 //Database connection
 connectDatabase();
 
-const PORT = process.env.PORT || 3000;
-// const PORT = 3001;
-
+// const PORT = process.env.PORT || 3000;
+const PORT = 3001;
+app.use("/", (req, res) => {
+    res.json({
+        message: "Something ",
+    });
+});
 app.listen(PORT, () => {
     console.log(`Server is runnig on port number http://localhost:${PORT}`);
 });
