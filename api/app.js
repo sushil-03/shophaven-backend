@@ -7,7 +7,7 @@ const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const path = require("path");
 app.use(cors());
-const errorMiddleware = require("./middleware/error");
+const errorMiddleware = require("../middleware/error");
 app.use(express.json({ limit: "50mb" }));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
@@ -17,7 +17,7 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
     require("dotenv").config({ path: "config/config.env" });
 }
 const cloudinary = require("cloudinary");
-const connectDatabase = require("./config/database");
+const connectDatabase = require("../config/database");
 
 connectDatabase();
 const PORT = process.env.PORT || 3000;
@@ -28,10 +28,10 @@ cloudinary.config({
 });
 
 //Routes
-const product = require("./routes/productRoute");
-const user = require("./routes/userRoutes");
-const order = require("./routes/orderRoute");
-const payment = require("./routes/paymentRoute");
+const product = require("../routes/productRoute");
+const user = require("../routes/userRoutes");
+const order = require("../routes/orderRoute");
+const payment = require("../routes/paymentRoute");
 app.use("/", (req, res) => {
     res.json({
         message: "Helloe from express",
