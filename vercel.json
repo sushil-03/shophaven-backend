@@ -3,7 +3,7 @@
     "name": "ecommerce",
     "builds": [
         {
-            "src": "server.js",
+            "src": "/",
             "use": "@vercel/node"
         }
     ],
