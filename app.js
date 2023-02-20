@@ -14,7 +14,7 @@ app.use(
         methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
     })
 );
-app.all("/*", function (req, res, next) {
+app.use("*", function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "https://shophaven.vercel.app/");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
     next();
