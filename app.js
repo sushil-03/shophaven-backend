@@ -10,12 +10,12 @@ const errorMiddleware = require("./middleware/error");
 app.use(
     cors({
         credentials: true,
-        origin: ["http://localhost:3000", "https://shophaven.vercel.app/"],
+        origin: ["http://localhost:3000", "https://shophaven.vercel.app"],
         methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
     })
 );
 app.use("*", function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "https://shophaven.vercel.app/");
+    res.header("Access-Control-Allow-Origin", "https://shophaven.vercel.app");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
     next();
 });
