@@ -4,14 +4,12 @@ const cookieParser = require("cookie-parser");
 const app = express();
 app.use(
     cors({
-        origin: [
-            "http://localhost:3000",
-            "https://shophaven-backend.vercel.app/",
-        ],
+        origin: ["http://localhost:3000"],
         credentials: true,
     })
 );
 
+// http://localhost:3000/account
 app.use(cookieParser());
 const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
