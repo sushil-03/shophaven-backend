@@ -9,6 +9,7 @@ const fileUpload = require("express-fileupload");
 const errorMiddleware = require("./middleware/error");
 app.use(
     cors({
+        credentials: true,
         origin: ["http://localhost:3000", "https://shophaven.vercel.app/"],
         methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
     })
