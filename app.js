@@ -17,15 +17,15 @@ const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const errorMiddleware = require("./middleware/error");
 
-// app.use(function (req, res, next) {
-//     res.header("Content-Type", "application/json;charset=UTF-8");
-//     res.header("Access-Control-Allow-Credentials", true);
-//     res.header(
-//         "Access-Control-Allow-Headers",
-//         "Origin, X-Requested-With, Content-Type, Accept"
-//     );
-//     next();
-// });
+app.use(function (req, res, next) {
+    res.header("Content-Type", "application/json;charset=UTF-8");
+    res.header("Access-Control-Allow-Credentials", true);
+    res.header(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    next();
+});
 app.use(express.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 app.use(fileUpload());
