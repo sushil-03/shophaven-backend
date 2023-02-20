@@ -30,8 +30,6 @@ app.use(fileUpload());
 if (process.env.NODE_ENV !== "PRODUCTION") {
     require("dotenv").config({ path: "config/config.env" });
 }
-var LocalStorage = require("node-localstorage").LocalStorage,
-    localStorage = new LocalStorage("./scratch");
 //Routes
 const product = require("./routes/productRoute");
 const user = require("./routes/userRoutes");
