@@ -16,8 +16,10 @@ const fileUpload = require("express-fileupload");
 const errorMiddleware = require("./middleware/error");
 
 app.use(function (req, res, next) {
-    res.header("Content-Type", "application/json;charset=UTF-8");
-    res.header("Access-Control-Allow-Credentials", true);
+    res.setHeader(
+        "Access-Control-Allow-Origin",
+        "https://shophaven.vercel.app/"
+    );
     res.header(
         "Access-Control-Allow-Headers",
         "Origin, X-Requested-With, Content-Type, Accept"
