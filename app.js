@@ -2,20 +2,36 @@ const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const app = express();
+app.use(
+    cors({
+        origin: "http://localhost:3000",
+        credentials: true,
+    })
+);
+
+app.use(cookieParser());
 const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
-const path = require("path");
-app.use(cors());
 const errorMiddleware = require("./middleware/error");
+
+// app.use(function (req, res, next) {
+//     res.header("Content-Type", "application/json;charset=UTF-8");
+//     res.header("Access-Control-Allow-Credentials", true);
+//     res.header(
+//         "Access-Control-Allow-Headers",
+//         "Origin, X-Requested-With, Content-Type, Accept"
+//     );
+//     next();
+// });
 app.use(express.json({ limit: "50mb" }));
-app.use(cookieParser());
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 app.use(fileUpload());
 
 if (process.env.NODE_ENV !== "PRODUCTION") {
     require("dotenv").config({ path: "config/config.env" });
 }
-
+var LocalStorage = require("node-localstorage").LocalStorage,
+    localStorage = new LocalStorage("./scratch");
 //Routes
 const product = require("./routes/productRoute");
 const user = require("./routes/userRoutes");
