@@ -15,17 +15,6 @@ const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const errorMiddleware = require("./middleware/error");
 
-app.use(function (req, res, next) {
-    res.setHeader(
-        "Access-Control-Allow-Origin",
-        "https://shophaven.vercel.app/"
-    );
-    res.header(
-        "Access-Control-Allow-Headers",
-        "Origin, X-Requested-With, Content-Type, Accept"
-    );
-    next();
-});
 app.use(express.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 app.use(fileUpload());
