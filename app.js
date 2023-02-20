@@ -11,23 +11,17 @@ app.use(
     cors({
         origin: "https://shophaven.vercel.app",
         credentials: true,
-        // optionsSuccessStatus: 200,
+        optionsSuccessStatus: 200,
     })
 );
+app.options("*", cors());
 app.use(function (req, res, next) {
-    res.setHeader("Access-Control-Allow-Credentials", true);
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    // another common pattern
-    // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
-    res.setHeader(
-        "Access-Control-Allow-Methods",
-        "GET,OPTIONS,PATCH,DELETE,POST,PUT"
-    );
-    res.setHeader(
+    res.header("Content-Type", "application/json;charset=UTF-8");
+    res.header("Access-Control-Allow-Credentials", true);
+    res.header(
         "Access-Control-Allow-Headers",
-        "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
+        "Origin, X-Requested-With, Content-Type, Accept"
     );
-
     next();
 });
 app.use(express.json({ limit: "50mb" }));
