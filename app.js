@@ -14,6 +14,11 @@ app.use(
         methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
     })
 );
+app.all("/*", function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next();
+});
 
 // app.use(function (req, res, next) {
 //     res.header("Content-Type", "application/json;charset=UTF-8");

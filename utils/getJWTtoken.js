@@ -7,10 +7,10 @@ const sendToken = (user, statusCode, res) => {
             Date.now() + process.env.COOKIE_EXPIRE * 24 * 60 * 60 * 1000
         ),
         // domain: "http://localhost:3000",
-        // httpOnly: true,
-        // secure: true,
-        // sameSite: "none",
-        // credentials: "same-origin",
+        httpOnly: true,
+        secure: true,
+        sameSite: "none",
+        credentials: "same-origin",
     };
 
     res.status(statusCode).cookie("token", token, options).json({
