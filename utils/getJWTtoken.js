@@ -6,12 +6,12 @@ const sendToken = (user, statusCode, res) => {
         expires: new Date(
             Date.now() + process.env.COOKIE_EXPIRE * 24 * 60 * 60 * 1000
         ),
-        // domain: "http:/ /localhost:3000",
         httpOnly: true,
-        // secure: true,
+        secure: true,
         // sameSite: "none",
         // credentials: "same-origin",
     };
+    // if (process.env.NODE_ENV === "production") options.secure = true;
 
     res.status(statusCode).cookie("token", token, options).json({
         success: true,
