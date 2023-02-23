@@ -7,7 +7,8 @@ const sendToken = (user, statusCode, res) => {
             Date.now() + process.env.COOKIE_EXPIRE * 24 * 60 * 60 * 1000
         ),
         httpOnly: true,
-        secure: req.secure || req.headers["x-forwarded-proto"] === "https",
+        secure: true,
+        // secure: req.secure || req.headers["x-forwarded-proto"] === "https",
         // sameSite: "none",
         // credentials: "same-origin",
     };
