@@ -9,7 +9,7 @@ const sendToken = (user, statusCode, res) => {
         httpOnly: true,
         // secure: true  ,
         // secure: req.secure || req.headers["x-forwarded-proto"] === "https",
-        // sameSite: "none",
+        sameSite: "none",
         // credentials: "same-origin",
     };
     // if (process.env.NODE_ENV === "production") options.secure = true;
