@@ -8,17 +8,17 @@ const fileUpload = require("express-fileupload");
 const errorMiddleware = require("./middleware/error");
 
 app.use(
-    cors({
-        credentials: true,
-        origin: ["http://localhost:3000", "https://shophaven.vercel.app"],
-        methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
-    })
+  cors({
+    credentials: true,
+    origin: ["http://localhost:3000", "https://shophaven.vercel.app"],
+    methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
+  })
 );
 app.use("*", function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "https://shophaven.vercel.app");
-    // res.header("Access-Control-Allow-Origin", "http://localhost:3000");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    next();
+  res.header("Access-Control-Allow-Origin", "https://shophaven.vercel.app");
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next();
 });
 
 // app.use(function (req, res, next) {
@@ -35,7 +35,7 @@ app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 app.use(fileUpload());
 
 if (process.env.NODE_ENV !== "PRODUCTION") {
-    require("dotenv").config({ path: "config/config.env" });
+  require("dotenv").config({ path: "config/config.env" });
 }
 //Routes
 const product = require("./routes/productRoute");

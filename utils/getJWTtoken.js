@@ -6,7 +6,7 @@ const sendToken = (user, statusCode, res) => {
     expires: new Date(
       Date.now() + process.env.COOKIE_EXPIRE * 24 * 60 * 60 * 1000
     ),
-    httpOnly: true,
+    // httpOnly: true,
     // path: "/",
     secure: true,
     // secure: req.secure || req.headers["x-forwarded-proto"] === "https",
@@ -15,7 +15,7 @@ const sendToken = (user, statusCode, res) => {
   };
   // if (process.env.NODE_ENV === "production") options.secure = true;
 
-  res.status(statusCode).cookie("token", token, options).json({
+  res.status(statusCode).cookie("shophaventoken", token, options).json({
     success: true,
     user,
     token,
